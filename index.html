@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="only light">
+<meta name="theme-color" content="#002060">
+<title>Milgray Legal — Wills, in plain English</title>
+<meta name="description" content="Wills, enduring power of attorney and enduring guardianship, explained in plain English. Fixed fees, honest advice and after-hours appointments. Milgray Legal.">
+<meta property="og:title" content="Milgray Legal — Wills, in plain English">
+<meta property="og:description" content="A will is one document that says who gets what. We write it with you, in words you understand.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.pexels.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<!--
+  Photography via Pexels (free to use):
+  Hero — SKYTONER · Kitchen — Werner Pfennig · Signing — Cytonn Photography
+-->
+<style>
+  :root{
+    color-scheme: only light;
+    --navy:#002060;      /* Milgray Navy — primary */
+    --navy-deep:#001845;  /* deepened navy for scrims */
+    --ink:#1D1F20;       /* body text */
+    --paper:#FFFFFF;     /* ground */
+    --steel:#1B365D;     /* links, secondary type */
+    --slate:#4A5878;     /* captions, labels */
+    --mist:#B8C4DD;      /* reversed sub-type, rules */
+    --fog:#F4F6FA;       /* tinted panels */
+    --hairline:#E4E8F0;
+    --hairline-navy:rgba(184,196,221,.22);
+    --error:#9A2B22;
+    --sans:'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    --max:1160px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;background:var(--paper)}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+  body{
+    font-family:var(--sans);
+    background:var(--paper);
+    color:var(--ink);
+    font-size:17px;
+    line-height:1.68;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  ::selection{background:rgba(0,32,96,.12);color:var(--navy)}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+  section{padding:clamp(64px,9vw,110px) 0}
+
+  /* ---------- Accessibility ---------- */
+  .skiplink{
+    position:absolute;left:-9999px;top:0;z-index:100;
+    background:var(--navy);color:#fff;padding:12px 20px;
+    font-weight:600;text-decoration:none;
+  }
+  .skiplink:focus{left:0}
+  a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+    outline:3px solid var(--steel);outline-offset:2px;
+  }
+  .section--navy a:focus-visible,.hero a:focus-visible{outline-color:var(--mist)}
+
+  /* ---------- Type ---------- */
+  .label{
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    font-weight:600;color:var(--slate);margin-bottom:20px;display:block;
+  }
+  .hero .label,.section--navy .label{color:var(--mist)}
+  h1,h2,h3{color:var(--navy);font-weight:600;line-height:1.16;text-wrap:balance;letter-spacing:-.01em}
+  h1{font-size:clamp(2.2rem,5.2vw,3.5rem)}
+  h2{font-size:clamp(1.75rem,3.6vw,2.5rem)}
+  h3{font-size:1.2rem;font-weight:600}
+  .lede{font-size:clamp(1.08rem,1.7vw,1.28rem);line-height:1.6;color:var(--steel);font-weight:400;max-width:34em;text-wrap:pretty}
+  p{text-wrap:pretty}
+  p+p{margin-top:1.1em}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--sans);font-weight:600;font-size:15px;
+    padding:15px 30px;border-radius:2px;text-decoration:none;
+    border:1.5px solid transparent;cursor:pointer;line-height:1;
+    transition:background .18s ease,border-color .18s ease,color .18s ease;
+  }
+  .btn--navy{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .btn--navy:hover{background:var(--navy-deep);border-color:var(--navy-deep)}
+  .btn--outline{background:transparent;color:var(--navy);border-color:var(--mist)}
+  .btn--outline:hover{border-color:var(--navy)}
+  .btn--light{background:#fff;color:var(--navy);border-color:#fff}
+  .btn--light:hover{background:transparent;color:#fff;border-color:var(--mist)}
+  .btn--ghost-light{background:transparent;color:#fff;border-color:var(--hairline-navy)}
+  .btn--ghost-light:hover{border-color:#fff}
+  .arrow{transition:transform .18s ease}
+  .btn:hover .arrow{transform:translateX(4px)}
+
+  /* ---------- Nav ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.9);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--hairline);
+  }
+  .nav__inner{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
+  .lockup{text-decoration:none;display:flex;flex-direction:column;gap:3px;line-height:1;white-space:nowrap}
+  .lockup__name{font-size:1.02rem;font-weight:600;letter-spacing:.2em;color:var(--navy)}
+  .lockup__sub{font-size:8.5px;font-weight:500;letter-spacing:.28em;color:var(--slate)}
+  .section--navy .lockup__name,footer .lockup__name{color:#fff}
+  .section--navy .lockup__sub,footer .lockup__sub{color:var(--mist)}
+  .nav__links{display:flex;gap:32px;list-style:none}
+  .nav__links a{font-size:14.5px;font-weight:500;color:var(--steel);text-decoration:none}
+  .nav__links a:hover{color:var(--navy)}
+  .nav__cta{display:flex;align-items:center;gap:22px}
+  .nav__phone{font-size:14.5px;font-weight:600;color:var(--steel);text-decoration:none;white-space:nowrap}
+  .nav__phone:hover{color:var(--navy)}
+  .nav .btn{padding:11px 22px;font-size:14px}
+  @media (max-width:920px){.nav__links,.nav__phone{display:none}}
+
+  /* ---------- Hero (navy duotone) ---------- */
+  .hero{position:relative;background:var(--navy);overflow:hidden;isolation:isolate}
+  .hero__media{position:absolute;inset:0;z-index:-2}
+  .hero__media img{
+    width:100%;height:100%;object-fit:cover;object-position:center 28%;
+    filter:grayscale(1) contrast(1.08) brightness(1.06);
+    mix-blend-mode:luminosity;opacity:.9;
+  }
+  .hero__scrim{
+    position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(180deg, rgba(0,24,69,.6) 0%, rgba(0,24,69,.72) 55%, rgba(0,20,58,.9) 100%);
+  }
+  .hero__inner{padding:clamp(90px,14vw,150px) 0 clamp(64px,9vw,104px);max-width:20em}
+  .hero h1{color:#fff}
+  .hero__lede{color:#dbe2f0;font-size:clamp(1.1rem,1.7vw,1.3rem);line-height:1.6;max-width:30em;margin-top:24px}
+  .hero__ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+  .hero__facts{
+    list-style:none;display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:44px;
+    padding-top:28px;border-top:1px solid var(--hairline-navy);max-width:34em;
+  }
+  .hero__facts li{color:var(--mist);font-size:14.5px;font-weight:500;display:flex;align-items:center;gap:9px}
+  .hero__facts li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--mist);flex:none}
+
+  /* ---------- Story ---------- */
+  .story__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,84px);align-items:center}
+  .story__body p{color:var(--slate)}
+  .story__body p strong{color:var(--navy);font-weight:600}
+  .story h2{max-width:14em}
+  .figure{margin:0}
+  .figure img{width:100%;border-radius:3px;aspect-ratio:4/3;object-fit:cover}
+  .figure figcaption{margin-top:14px;font-size:13.5px;color:var(--slate);letter-spacing:.01em}
+  @media (max-width:860px){.story__grid{grid-template-columns:1fr;gap:36px}.story__media{order:-1}}
+
+  /* ---------- Services register ---------- */
+  .section--fog{background:var(--fog)}
+  .register{list-style:none;border-top:1px solid var(--hairline);margin-top:clamp(36px,5vw,52px)}
+  .register li{border-bottom:1px solid var(--hairline)}
+  .register a{
+    display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr) auto;gap:28px;align-items:center;
+    padding:30px 8px;text-decoration:none;transition:padding .18s ease;
+  }
+  .register a:hover{padding-left:16px;padding-right:0}
+  .register h3{font-size:clamp(1.3rem,2.4vw,1.7rem)}
+  .register p{font-size:15.5px;color:var(--slate);line-height:1.55}
+  .register .arrow{font-size:1.3rem;color:var(--steel)}
+  @media (max-width:720px){.register a{grid-template-columns:1fr;gap:8px;padding:26px 4px}.register .arrow{display:none}}
+
+  /* ---------- Service detail ---------- */
+  .service{scroll-margin-top:92px}
+  .service+.service{border-top:1px solid var(--hairline)}
+  .service__head{max-width:40em;margin-bottom:clamp(40px,5vw,60px)}
+  .service__head .lede{margin-top:18px}
+  .service__cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(32px,5vw,72px)}
+  .service__cols h3{margin-bottom:16px}
+  .service__cols p{color:var(--slate);font-size:16px}
+  .service__cols ul{list-style:none;margin-top:4px}
+  .service__cols ul li{padding:14px 0;border-bottom:1px solid var(--hairline);color:var(--slate);font-size:15.5px;line-height:1.5}
+  .service__cols ul li:first-child{padding-top:0}
+  .service__cols ul li:last-child{border-bottom:none}
+  .service__cta{
+    margin-top:clamp(40px,5vw,56px);padding-top:30px;border-top:1px solid var(--hairline);
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;
+  }
+  .service__cta p{font-size:1.15rem;font-weight:500;color:var(--navy);max-width:22em}
+  @media (max-width:820px){.service__cols{grid-template-columns:1fr;gap:36px}}
+
+  /* ---------- Values ---------- */
+  .values{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,4vw,52px);margin-top:clamp(40px,5vw,56px)}
+  .values article{border-top:2px solid var(--navy);padding-top:24px}
+  .values h3{margin-bottom:12px}
+  .values p{color:var(--slate);font-size:15.5px}
+  @media (max-width:820px){.values{grid-template-columns:1fr}}
+
+  /* ---------- Signature line (navy quote band) ---------- */
+  .band{background:var(--navy);color:#fff}
+  .band .wrap{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,4vw,48px);align-items:center}
+  .band__mark{font-size:clamp(2.4rem,6vw,3.4rem);font-weight:600;letter-spacing:.02em;color:var(--mist)}
+  .band p{font-size:clamp(1.25rem,2.6vw,1.7rem);font-weight:400;line-height:1.4;color:#fff;max-width:20em}
+  @media (max-width:640px){.band .wrap{grid-template-columns:1fr;gap:18px}}
+
+  /* ---------- Process (navy + duotone) ---------- */
+  .section--navy{position:relative;background:var(--navy);color:#fff;overflow:hidden;isolation:isolate}
+  .section--navy .process__media{position:absolute;inset:0;z-index:-2}
+  .section--navy .process__media img{width:100%;height:100%;object-fit:cover;filter:grayscale(1);mix-blend-mode:luminosity;opacity:.16}
+  .section--navy::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,32,96,.82),rgba(0,20,58,.94))}
+  .section--navy h2{color:#fff;max-width:15em}
+  .section--navy .lede{color:var(--mist)}
+  .process{counter-reset:step;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,4vw,52px);margin-top:clamp(44px,5vw,60px);list-style:none}
+  .process li{counter-increment:step;border-top:1px solid var(--hairline-navy);padding-top:24px}
+  .process li::before{content:counter(step,decimal-leading-zero);font-size:.95rem;font-weight:600;letter-spacing:.1em;color:var(--mist);display:block;margin-bottom:16px}
+  .process h3{color:#fff;margin-bottom:10px}
+  .process p{color:#c7d2e6;font-size:15.5px}
+  @media (max-width:820px){.process{grid-template-columns:1fr}}
+
+  /* ---------- Enquire ---------- */
+  .enquire{scroll-margin-top:92px}
+  .enquire__grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(40px,6vw,88px);align-items:start}
+  .enquire .lede{margin-top:18px}
+  .enquire__contact{margin-top:34px;border-top:1px solid var(--hairline);padding-top:26px;display:grid;gap:4px}
+  .enquire__contact a{font-size:1.15rem;font-weight:600;color:var(--navy);text-decoration:none;width:fit-content}
+  .enquire__contact a:hover{color:var(--steel)}
+  .enquire__contact span{font-size:13.5px;color:var(--slate);margin-top:8px}
+  form{display:grid;gap:20px;background:var(--fog);padding:clamp(24px,4vw,40px);border-radius:3px}
+  .field label{display:block;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--slate);margin-bottom:9px}
+  .field input,.field select,.field textarea{
+    width:100%;font-family:var(--sans);font-size:16px;color:var(--ink);
+    background:#fff;border:1px solid var(--hairline);border-radius:2px;padding:14px 16px;
+    transition:border-color .15s ease,box-shadow .15s ease;
+  }
+  .field textarea{min-height:120px;resize:vertical}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(0,32,96,.12)}
+  .field--row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  form .btn{justify-content:center;width:100%;font-size:16px;padding:17px}
+  .form__note{font-size:13px;color:var(--slate);text-align:center;line-height:1.5}
+  .field input[aria-invalid="true"],.field textarea[aria-invalid="true"]{border-color:var(--error)}
+  .field__error{display:none;font-size:13px;font-weight:500;color:var(--error);margin-top:7px}
+  .field__error.show{display:block}
+  @media (max-width:820px){.enquire__grid{grid-template-columns:1fr}.field--row{grid-template-columns:1fr}}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--navy);color:var(--mist);padding:56px 0 110px;font-size:14px}
+  .footer__top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px;padding-bottom:32px;border-bottom:1px solid var(--hairline-navy)}
+  .footer__tag{font-size:1.15rem;font-weight:400;color:#fff;margin-top:16px;max-width:16em}
+  .footer__links{display:flex;gap:28px;list-style:none;flex-wrap:wrap}
+  .footer__links a{text-decoration:none;color:var(--mist);font-weight:500}
+  .footer__links a:hover{color:#fff}
+  .footer__bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;margin-top:28px;font-size:13px;color:#8fa0c4}
+  .footer__bottom a{color:#8fa0c4;text-decoration:none}
+  .footer__bottom a:hover{color:#fff}
+  @media (min-width:769px){footer{padding-bottom:56px}}
+
+  /* ---------- Mobile action bar ---------- */
+  .actionbar{
+    position:fixed;bottom:0;left:0;right:0;z-index:60;display:none;gap:10px;
+    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+    background:rgba(0,24,69,.97);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+    border-top:1px solid var(--hairline-navy);
+  }
+  .actionbar .btn{flex:1;justify-content:center;padding:13px;font-size:14.5px}
+  @media (max-width:768px){.actionbar{display:flex}}
+
+  /* ---------- Reveal ---------- */
+  @media (prefers-reduced-motion: no-preference){
+    html.js .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+    html.js .reveal.in{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+<a class="skiplink" href="#main">Skip to content</a>
+
+<nav class="nav" aria-label="Primary">
+  <div class="wrap nav__inner">
+    <a class="lockup" href="#top" aria-label="Milgray Legal, estate planning lawyers">
+      <span class="lockup__name">MILGRAY&nbsp;LEGAL</span>
+      <span class="lockup__sub">ESTATE&nbsp;PLANNING&nbsp;LAWYERS</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="#wills">Wills</a></li>
+      <li><a href="#epoa">Power of attorney</a></li>
+      <li><a href="#guardianship">Guardianship</a></li>
+      <li><a href="#process">How it works</a></li>
+    </ul>
+    <div class="nav__cta">
+      <a class="nav__phone" href="tel:+61450297823">0450&nbsp;297&nbsp;823</a>
+      <a class="btn btn--navy" href="#enquire">Book a call</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+  <header class="hero" id="top">
+    <div class="hero__media" aria-hidden="true">
+      <img src="https://images.pexels.com/photos/4597300/pexels-photo-4597300.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="" fetchpriority="high">
+    </div>
+    <div class="hero__scrim" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero__inner">
+        <span class="label">Wills, in plain English</span>
+        <h1>A will is easier than you think.</h1>
+        <p class="hero__lede">A will is one document that says who gets what. We write it with you, in words you understand. No jargon, no pressure, and no question too small to ask.</p>
+        <div class="hero__ctas">
+          <a class="btn btn--light" href="#enquire">Book a first call <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn--ghost-light" href="#process">See how it works</a>
+        </div>
+        <ul class="hero__facts">
+          <li>Fixed fees, quoted before we start</li>
+          <li>After-hours appointments</li>
+          <li>The first call costs nothing</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <section class="story">
+    <div class="wrap story__grid reveal">
+      <div>
+        <span class="label">Why we exist</span>
+        <h2>Most people put off writing a will because no one has ever explained it to them properly.</h2>
+        <div class="story__body">
+          <p>We take the time to explain how a will works, what it protects, and where your money and property actually go. If you leave a meeting confused, we haven&rsquo;t done our job.</p>
+          <p>The name is a promise. <strong>Mil</strong> and <strong>Gray</strong> are Millie and Grayson, principal Chris Trieu&rsquo;s two children. Every will we draft gets the same care he put into his own, because he knows what it means to have a family depending on you.</p>
+        </div>
+      </div>
+      <figure class="figure story__media">
+        <img src="https://images.pexels.com/photos/5442688/pexels-photo-5442688.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="A father and two children sharing breakfast at the kitchen table in a warmly lit home." loading="lazy">
+        <figcaption>Where these conversations belong: the kitchen table, not an office.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section--fog" id="services">
+    <div class="wrap reveal">
+      <span class="label">What we do</span>
+      <h2 style="max-width:15em">If you own anything and love anyone, you need a will. That is the whole test.</h2>
+      <ul class="register">
+        <li><a href="#wills">
+          <h3>Wills</h3>
+          <p>One document that says who gets what &mdash; your home, your savings, and who looks after your children.</p>
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+        </a></li>
+        <li><a href="#epoa">
+          <h3>Enduring power of attorney</h3>
+          <p>The person who handles your money and paperwork if you can&rsquo;t. You pick them, while you still can.</p>
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+        </a></li>
+        <li><a href="#guardianship">
+          <h3>Enduring guardianship</h3>
+          <p>The person who decides on your health and care if you&rsquo;re ever unable to say so yourself.</p>
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+        </a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="service" id="wills">
+    <div class="wrap reveal">
+      <div class="service__head">
+        <span class="label">Wills</span>
+        <h2>What happens if you don&rsquo;t have one?</h2>
+        <p class="lede">If you die without a will, the law decides who gets what. It follows a fixed formula, and the formula doesn&rsquo;t know your family. A will replaces the formula with your own words.</p>
+      </div>
+      <div class="service__cols">
+        <div>
+          <h3>When it&rsquo;s worth writing or updating one</h3>
+          <ul>
+            <li>You got married, or moved in with a partner.</li>
+            <li>You had a child or a grandchild.</li>
+            <li>You bought a house, or started or sold a business.</li>
+            <li>You separated or divorced.</li>
+            <li>It has been a few years and you&rsquo;re not sure your old one still fits.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>You don&rsquo;t need it all worked out first</h3>
+          <p>We start with a short chat about your family and what you own. We talk through who should look after your children and where things should go. Then we write it in plain English and make sure it is signed and witnessed the way the law requires.</p>
+          <p>Ask us anything along the way. If we use a word you don&rsquo;t recognise, that&rsquo;s our mistake, not yours.</p>
+        </div>
+      </div>
+      <div class="service__cta">
+        <p>A will you understand, written the way you&rsquo;d explain it yourself.</p>
+        <a class="btn btn--navy" href="#enquire">Start with a call <span class="arrow" aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="service" id="epoa">
+    <div class="wrap reveal">
+      <div class="service__head">
+        <span class="label">Enduring power of attorney</span>
+        <h2>Who pays your bills if you can&rsquo;t?</h2>
+        <p class="lede">An enduring power of attorney lets you pick the person who looks after your money and paperwork if illness or injury means you can&rsquo;t. You choose them yourself, while you still can.</p>
+      </div>
+      <div class="service__cols">
+        <div>
+          <h3>What happens without one</h3>
+          <ul>
+            <li>No one can touch your accounts, not even family, without asking a tribunal first.</li>
+            <li>That takes months, and it costs money.</li>
+            <li>The tribunal picks who acts for you, and it may not be who you would have chosen.</li>
+            <li>The rent, the mortgage and the bills still have to be paid in the meantime.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Why now, and not later</h3>
+          <p>You can only set one up while you can still make your own decisions. Once a crisis hits, it is usually too late.</p>
+          <p>Sorting it now, while everything is fine, keeps the choice in your hands rather than a tribunal&rsquo;s. Set it up once, and it waits quietly until the day it is needed.</p>
+        </div>
+      </div>
+      <div class="service__cta">
+        <p>Pick the right person now, on your own terms.</p>
+        <a class="btn btn--navy" href="#enquire">Talk it through <span class="arrow" aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="service" id="guardianship">
+    <div class="wrap reveal">
+      <div class="service__head">
+        <span class="label">Enduring guardianship</span>
+        <h2>Who decides on your care if you can&rsquo;t speak for yourself?</h2>
+        <p class="lede">A power of attorney covers your money. An enduring guardian covers you &mdash; where you live, the treatment you get, the support you receive &mdash; if you&rsquo;re ever unable to say so yourself.</p>
+      </div>
+      <div class="service__cols">
+        <div>
+          <h3>Why it&rsquo;s worth doing</h3>
+          <p>Without one, your family may have to ask a tribunal to be appointed. It is slow, it is stressful, and the tribunal may not choose the person you would have.</p>
+          <p>Naming someone now means the people who know your wishes are the ones who get to act on them.</p>
+        </div>
+        <div>
+          <h3>Valid when it counts</h3>
+          <p>You need to be able to make your own decisions on the day you sign, so the document holds up later when it is needed.</p>
+          <p>Sorting it while you are well also lifts the weight of these decisions off your family at a hard time. Your voice stays in the room.</p>
+        </div>
+      </div>
+      <div class="service__cta">
+        <p>Put your care in hands that already know your wishes.</p>
+        <a class="btn btn--navy" href="#enquire">Appoint someone you trust <span class="arrow" aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section--fog">
+    <div class="wrap reveal">
+      <span class="label">Why Milgray</span>
+      <h2 style="max-width:16em">A lawyer at the kitchen table, not behind a desk.</h2>
+      <div class="values">
+        <article>
+          <h3>Plain English, always</h3>
+          <p>We explain how each document works and what it protects, without the jargon. Ask us anything. If we use a word you don&rsquo;t recognise, that&rsquo;s our mistake to fix.</p>
+        </article>
+        <article>
+          <h3>Honest about cost and time</h3>
+          <p>We tell you what it costs and how long it takes before you commit. No surprises on the invoice, and no pressure to decide on the spot.</p>
+        </article>
+        <article>
+          <h3>Built around your week</h3>
+          <p>After-hours appointments, so sorting this out doesn&rsquo;t mean taking time off work or away from your family.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <span class="band__mark" aria-hidden="true">MG</span>
+      <p>Our test for every sentence: would we say it, in exactly those words, to a friend across the kitchen table?</p>
+    </div>
+  </section>
+
+  <section class="section--navy" id="process">
+    <div class="process__media" aria-hidden="true">
+      <img src="https://images.pexels.com/photos/955394/pexels-photo-955394.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" loading="lazy">
+    </div>
+    <div class="wrap reveal">
+      <span class="label">How it works</span>
+      <h2>From first call to signed will, here&rsquo;s how it goes.</h2>
+      <ol class="process">
+        <li>
+          <h3>We talk</h3>
+          <p>A short, private call about your family, what you own, and who you&rsquo;d trust to look after it. No paperwork yet.</p>
+        </li>
+        <li>
+          <h3>We plan</h3>
+          <p>We go through your wishes together, flag anything worth thinking about, and agree what your documents need to say.</p>
+        </li>
+        <li>
+          <h3>We write and sign</h3>
+          <p>We draft everything in plain English, you read it over, and we make sure it is signed and witnessed exactly the way the law requires.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="enquire" id="enquire">
+    <div class="wrap enquire__grid reveal">
+      <div>
+        <span class="label">Get in touch</span>
+        <h2>Ask us anything.</h2>
+        <p class="lede">The first call is free and there&rsquo;s no obligation. Tell us a little about what you need, and we&rsquo;ll get back to you within one business day.</p>
+        <div class="enquire__contact">
+          <a href="tel:+61450297823">0450 297 823</a>
+          <a href="mailto:info@milgray.com.au">info@milgray.com.au</a>
+          <span>After-hours appointments available.</span>
+        </div>
+      </div>
+      <form id="enquiryForm" novalidate>
+        <div class="field--row">
+          <div class="field">
+            <label for="f-name">Your name <span aria-hidden="true" style="color:var(--error)">*</span></label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required aria-required="true" aria-describedby="err-name">
+            <p class="field__error" id="err-name">Please tell us your name.</p>
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone</label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-email">Email <span aria-hidden="true" style="color:var(--error)">*</span></label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required aria-required="true" aria-describedby="err-email">
+          <p class="field__error" id="err-email">Please add an email so we can reply.</p>
+        </div>
+        <div class="field">
+          <label for="f-service">What would you like to talk about?</label>
+          <select id="f-service" name="service">
+            <option>A new or updated will</option>
+            <option>Enduring power of attorney</option>
+            <option>Enduring guardianship</option>
+            <option>The full set of documents</option>
+            <option>Not sure yet &mdash; just a general question</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-message">Anything you&rsquo;d like us to know? <span style="text-transform:none;font-weight:400;color:var(--slate)">(optional)</span></label>
+          <textarea id="f-message" name="message"></textarea>
+        </div>
+        <button class="btn btn--navy" type="submit">Send enquiry <span class="arrow" aria-hidden="true">&rarr;</span></button>
+        <p class="form__note">Confidential, and no obligation. We&rsquo;ll get back to you within one business day.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer__top">
+      <div>
+        <a class="lockup" href="#top" aria-label="Milgray Legal, estate planning lawyers">
+          <span class="lockup__name">MILGRAY&nbsp;LEGAL</span>
+          <span class="lockup__sub">ESTATE&nbsp;PLANNING&nbsp;LAWYERS</span>
+        </a>
+        <p class="footer__tag">Wills, in plain English.</p>
+      </div>
+      <ul class="footer__links">
+        <li><a href="#wills">Wills</a></li>
+        <li><a href="#epoa">Enduring power of attorney</a></li>
+        <li><a href="#guardianship">Enduring guardianship</a></li>
+        <li><a href="#process">How it works</a></li>
+        <li><a href="#enquire">Get in touch</a></li>
+      </ul>
+    </div>
+    <div class="footer__bottom">
+      <div>&copy; 2026 Milgray Legal &nbsp;&middot;&nbsp; Chris Trieu, Principal Lawyer</div>
+      <div><a href="tel:+61450297823">0450 297 823</a> &nbsp;&middot;&nbsp; <a href="mailto:info@milgray.com.au">info@milgray.com.au</a></div>
+    </div>
+  </div>
+</footer>
+
+<nav class="actionbar" aria-label="Quick actions">
+  <a class="btn btn--ghost-light" href="tel:+61450297823">Call us</a>
+  <a class="btn btn--light" href="#enquire">Book a call</a>
+</nav>
+
+<script>
+  document.documentElement.classList.add('js');
+
+  // Enquiry form → opens a pre-filled email (no backend needed)
+  function setError(input, errId, invalid){
+    input.setAttribute('aria-invalid', invalid ? 'true' : 'false');
+    document.getElementById(errId).classList.toggle('show', invalid);
+  }
+  document.getElementById('enquiryForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var f = e.target;
+    var nameBad = !f.name.value.trim();
+    var emailBad = !f.email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.value.trim());
+    setError(f.name, 'err-name', nameBad);
+    setError(f.email, 'err-email', emailBad);
+    if(nameBad || emailBad){ (nameBad ? f.name : f.email).focus(); return; }
+    var subject = 'Enquiry: ' + f.service.value;
+    var body = 'Name: ' + f.name.value +
+      '\nPhone: ' + (f.phone.value || '—') +
+      '\nEmail: ' + f.email.value +
+      '\nAbout: ' + f.service.value +
+      (f.message.value ? '\n\n' + f.message.value : '');
+    window.location.href = 'mailto:info@milgray.com.au?subject=' +
+      encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  });
+
+  // Gentle scroll reveals (respects reduced motion via CSS)
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:.08});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+</script>
+</body>
+</html>
