@@ -17,6 +17,7 @@
 <!--
   Photography via Pexels (free to use):
   Hero — SKYTONER · Kitchen — Werner Pfennig · Signing — Cytonn Photography
+  Wills — Vlada Karpovich · Power of attorney — Ron Lach · Guardianship — cottonbro studio
 -->
 <style>
   :root{
@@ -129,7 +130,7 @@
   .hero{position:relative;background:var(--navy);overflow:hidden;isolation:isolate}
   .hero__media{position:absolute;inset:0;z-index:-2}
   .hero__media img{
-    width:100%;height:100%;object-fit:cover;object-position:center 28%;
+    width:100%;height:100%;object-fit:cover;object-position:center 88%;
     filter:grayscale(1) contrast(1.08) brightness(1.06);
     mix-blend-mode:luminosity;opacity:.9;
   }
@@ -184,8 +185,19 @@
   /* ---------- Service detail ---------- */
   .service{scroll-margin-top:92px}
   .service+.service{border-top:1px solid var(--hairline)}
-  .service__head{max-width:40em;margin-bottom:clamp(40px,5vw,60px)}
+  .service__head{
+    margin-bottom:clamp(40px,5vw,60px);
+    display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(36px,5vw,72px);align-items:center;
+  }
   .service__head .lede{margin-top:18px}
+  .service__intro{max-width:38em}
+  .service__figure{margin:0}
+  .service__figure img{width:100%;border-radius:3px;aspect-ratio:4/3;object-fit:cover}
+  .service__head--flip .service__figure{order:-1}
+  @media (max-width:860px){
+    .service__head{grid-template-columns:1fr;gap:28px}
+    .service__head--flip .service__figure{order:0}
+  }
   .service__cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(32px,5vw,72px)}
   .service__cols h3{margin-bottom:16px}
   .service__cols p{color:var(--slate);font-size:16px}
@@ -370,9 +382,14 @@
   <section class="service" id="wills">
     <div class="wrap reveal">
       <div class="service__head">
-        <span class="label">Wills</span>
-        <h2>What happens if you don&rsquo;t have one?</h2>
-        <p class="lede">If you die without a will, the law decides who gets what. It follows a fixed formula, and the formula doesn&rsquo;t know your family. A will replaces the formula with your own words.</p>
+        <div class="service__intro">
+          <span class="label">Wills</span>
+          <h2>What happens if you don&rsquo;t have one?</h2>
+          <p class="lede">If you die without a will, the law decides who gets what. It follows a fixed formula, and the formula doesn&rsquo;t know your family. A will replaces the formula with your own words.</p>
+        </div>
+        <figure class="service__figure">
+          <img src="https://images.pexels.com/photos/4609039/pexels-photo-4609039.jpeg?auto=compress&cs=tinysrgb&w=900" alt="A father and his young daughter resting their foreheads together in a bright, plant-filled living room." loading="lazy">
+        </figure>
       </div>
       <div class="service__cols">
         <div>
@@ -400,10 +417,15 @@
 
   <section class="service" id="epoa">
     <div class="wrap reveal">
-      <div class="service__head">
-        <span class="label">Enduring power of attorney</span>
-        <h2>Who pays your bills if you can&rsquo;t?</h2>
-        <p class="lede">An enduring power of attorney lets you pick the person who looks after your money and paperwork if illness or injury means you can&rsquo;t. You choose them yourself, while you still can.</p>
+      <div class="service__head service__head--flip">
+        <div class="service__intro">
+          <span class="label">Enduring power of attorney</span>
+          <h2>Who pays your bills if you can&rsquo;t?</h2>
+          <p class="lede">An enduring power of attorney lets you pick the person who looks after your money and paperwork if illness or injury means you can&rsquo;t. You choose them yourself, while you still can.</p>
+        </div>
+        <figure class="service__figure">
+          <img src="https://images.pexels.com/photos/9869635/pexels-photo-9869635.jpeg?auto=compress&cs=tinysrgb&w=900" alt="A couple sitting at their kitchen table, going through paperwork together over coffee." loading="lazy">
+        </figure>
       </div>
       <div class="service__cols">
         <div>
@@ -431,9 +453,14 @@
   <section class="service" id="guardianship">
     <div class="wrap reveal">
       <div class="service__head">
-        <span class="label">Enduring guardianship</span>
-        <h2>Who decides on your care if you can&rsquo;t speak for yourself?</h2>
-        <p class="lede">A power of attorney covers your money. An enduring guardian covers you &mdash; where you live, the treatment you get, the support you receive &mdash; if you&rsquo;re ever unable to say so yourself.</p>
+        <div class="service__intro">
+          <span class="label">Enduring guardianship</span>
+          <h2>Who decides on your care if you can&rsquo;t speak for yourself?</h2>
+          <p class="lede">A power of attorney covers your money. An enduring guardian covers you &mdash; where you live, the treatment you get, the support you receive &mdash; if you&rsquo;re ever unable to say so yourself.</p>
+        </div>
+        <figure class="service__figure">
+          <img src="https://images.pexels.com/photos/6595043/pexels-photo-6595043.jpeg?auto=compress&cs=tinysrgb&w=900" alt="A father and daughter talking quietly together at home." loading="lazy">
+        </figure>
       </div>
       <div class="service__cols">
         <div>
