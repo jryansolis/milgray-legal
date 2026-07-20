@@ -77,16 +77,22 @@
     font-weight:600;color:var(--slate);margin-bottom:20px;display:block;
   }
   .hero .label,.section--navy .label{color:var(--mist)}
-  h1,h2,h3{color:var(--navy);font-weight:600;line-height:1.16;text-wrap:balance;letter-spacing:-.01em}
-  h1{font-size:clamp(2.2rem,5.2vw,3.5rem)}
-  h2{font-size:clamp(1.75rem,3.6vw,2.5rem)}
-  h3{font-size:1.2rem;font-weight:600}
+  h1,h2,h3{color:var(--navy);font-weight:600;text-wrap:balance;letter-spacing:-.015em}
+  h1{font-size:clamp(2.3rem,5.4vw,3.9rem);line-height:1.14}
+  h2{font-size:clamp(1.8rem,3.7vw,2.7rem);line-height:1.3}
+  h3{font-size:1.2rem;line-height:1.4;letter-spacing:-.005em}
   .lede{font-size:clamp(1.08rem,1.7vw,1.28rem);line-height:1.6;color:var(--steel);font-weight:400;max-width:34em;text-wrap:pretty}
   p{text-wrap:pretty}
   p+p{margin-top:1.1em}
 
   /* ---------- Icons (single-weight line, echoing the mark) ---------- */
   .icon{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+  /* ---------- Staggered entrance (CSS-only, no JS dependency) ---------- */
+  @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion: no-preference){
+    .anim{opacity:0;animation:rise .9s cubic-bezier(.22,1,.36,1) both;animation-delay:var(--d,0s)}
+  }
 
   /* ---------- Buttons ---------- */
   .btn{
@@ -104,6 +110,11 @@
   .btn--light:hover{background:transparent;color:#fff;border-color:var(--mist)}
   .btn--ghost-light{background:transparent;color:#fff;border-color:var(--hairline-navy)}
   .btn--ghost-light:hover{border-color:#fff}
+  .btn--glass{
+    background:rgba(255,255,255,.12);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+    color:#fff;border-color:rgba(255,255,255,.34);
+  }
+  .btn--glass:hover{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.7)}
   .arrow{transition:transform .18s ease}
   .btn:hover .arrow{transform:translateX(4px)}
 
@@ -115,11 +126,24 @@
     border-bottom:1px solid var(--hairline);
   }
   .nav__inner{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
-  .lockup{text-decoration:none;display:flex;flex-direction:column;gap:3px;line-height:1;white-space:nowrap}
+  .lockup{text-decoration:none;display:flex;align-items:center;gap:15px;white-space:nowrap}
+  .lockup__mark{height:32px;width:auto;display:block;flex:none}
+  .lockup__type{display:flex;flex-direction:column;gap:3px;line-height:1;padding-left:15px;border-left:1px solid var(--hairline)}
   .lockup__name{font-size:1.02rem;font-weight:600;letter-spacing:.2em;color:var(--navy)}
   .lockup__sub{font-size:8.5px;font-weight:500;letter-spacing:.28em;color:var(--slate)}
-  .section--navy .lockup__name,footer .lockup__name{color:#fff}
-  .section--navy .lockup__sub,footer .lockup__sub{color:var(--mist)}
+  footer .lockup__type{border-left-color:rgba(184,196,221,.32)}
+  footer .lockup__name{color:#fff}
+  footer .lockup__sub{color:var(--mist)}
+  @media (max-width:620px){
+    .nav .lockup__name{font-size:.92rem;letter-spacing:.15em}
+    .nav .lockup__type{padding-left:12px}
+    .nav .lockup{gap:12px}
+  }
+  /* Below this the wordmark crowds the CTA — the mark alone carries the brand */
+  @media (max-width:520px){
+    .nav .lockup__type{display:none}
+    .nav .lockup__mark{height:30px}
+  }
   .nav__links{display:flex;gap:32px;list-style:none}
   .nav__links a{font-size:14.5px;font-weight:500;color:var(--steel);text-decoration:none}
   .nav__links a:hover{color:var(--navy)}
@@ -130,12 +154,17 @@
   @media (max-width:920px){.nav__links,.nav__phone{display:none}}
 
   /* ---------- Hero (navy duotone) ---------- */
-  .hero{position:relative;background:var(--navy);overflow:hidden;isolation:isolate}
-  .hero__media{position:absolute;inset:0;z-index:-2}
+  .hero{
+    position:relative;background:var(--navy);overflow:hidden;isolation:isolate;
+    min-height:min(88vh,880px);display:flex;align-items:flex-end;
+  }
+  .hero>.wrap{width:100%}
+  .hero__media{position:absolute;inset:0;z-index:-2;overflow:hidden}
   .hero__media img{
-    width:100%;height:100%;object-fit:cover;object-position:center 88%;
+    position:absolute;top:-8%;left:0;width:100%;height:116%;
+    object-fit:cover;object-position:center 84%;
     filter:grayscale(1) contrast(1.08) brightness(1.06);
-    mix-blend-mode:luminosity;opacity:.9;
+    mix-blend-mode:luminosity;opacity:.9;will-change:transform;
   }
   .hero__scrim{
     position:absolute;inset:0;z-index:-1;
@@ -161,15 +190,28 @@
     .hero__aside{max-width:34em}
   }
 
-  /* ---------- Story ---------- */
-  .story__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,84px);align-items:center}
-  .story__body p{color:var(--slate)}
-  .story__body p strong{color:var(--navy);font-weight:600}
-  .story h2{max-width:14em}
-  .figure{margin:0}
-  .figure img{width:100%;border-radius:3px;aspect-ratio:4/3;object-fit:cover}
-  .figure figcaption{margin-top:14px;font-size:13.5px;color:var(--slate);letter-spacing:.01em}
-  @media (max-width:860px){.story__grid{grid-template-columns:1fr;gap:36px}.story__media{order:-1}}
+  /* ---------- Feature (full-bleed editorial band) ---------- */
+  .feature{position:relative;overflow:hidden;isolation:isolate;padding:0}
+  .feature__media{position:absolute;inset:0 0 0 34%;z-index:-1;overflow:hidden}
+  .feature__media img{position:absolute;top:-9%;left:0;width:100%;height:118%;object-fit:cover;will-change:transform}
+  .feature__media::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,var(--paper) 0%,var(--paper) 10%,rgba(255,255,255,.88) 30%,rgba(255,255,255,.35) 55%,rgba(255,255,255,0) 78%);
+  }
+  .feature__inner{padding:clamp(96px,14vw,180px) 0}
+  .feature__text{max-width:30em}
+  .feature__text p{color:var(--slate)}
+  .feature__text p strong{color:var(--navy);font-weight:600}
+  .feature__body{margin-top:clamp(24px,3vw,34px)}
+  .feature figcaption{margin-top:20px;font-size:13.5px;color:var(--slate)}
+  @media (max-width:900px){
+    .feature{isolation:auto}
+    .feature__media{position:relative;inset:auto;z-index:0;height:64vw;max-height:400px}
+    .feature__media img{height:116%;top:-8%}
+    .feature__media::after{background:linear-gradient(180deg,rgba(255,255,255,0) 60%,rgba(255,255,255,.75) 85%,var(--paper) 100%)}
+    .feature__inner{padding:clamp(28px,5vw,40px) 0 clamp(56px,9vw,84px)}
+    .feature__text{max-width:none}
+  }
 
   /* ---------- Services register ---------- */
   .section--fog{background:var(--fog)}
@@ -200,8 +242,8 @@
   }
   .service__head .lede{margin-top:18px}
   .service__intro{max-width:38em}
-  .service__figure{margin:0}
-  .service__figure img{width:100%;border-radius:3px;aspect-ratio:4/3;object-fit:cover}
+  .service__figure{margin:0;position:relative;overflow:hidden;border-radius:3px;aspect-ratio:4/3}
+  .service__figure img{position:absolute;top:-7%;left:0;width:100%;height:114%;object-fit:cover;will-change:transform}
   .service__head--flip .service__figure{order:-1}
   @media (max-width:860px){
     .service__head{grid-template-columns:1fr;gap:28px}
@@ -231,8 +273,12 @@
 
   /* ---------- Process (navy + duotone) ---------- */
   .section--navy{position:relative;background:var(--navy);color:#fff;overflow:hidden;isolation:isolate}
-  .section--navy .process__media{position:absolute;inset:0;z-index:-2}
-  .section--navy .process__media img{width:100%;height:100%;object-fit:cover;filter:grayscale(1);mix-blend-mode:luminosity;opacity:.16}
+  .section--navy .process__media{position:absolute;inset:0;z-index:-2;overflow:hidden}
+  .section--navy .process__media img{position:absolute;top:-9%;left:0;width:100%;height:118%;object-fit:cover;filter:grayscale(1);mix-blend-mode:luminosity;opacity:.16;will-change:transform}
+  .watermark{
+    position:absolute;right:-3%;bottom:-10%;width:min(44vw,480px);height:auto;
+    opacity:.07;z-index:-1;pointer-events:none;user-select:none;
+  }
   .section--navy::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,32,96,.82),rgba(0,20,58,.94))}
   .section--navy h2{color:#fff;max-width:15em}
   .section--navy .lede{color:var(--mist)}
@@ -339,8 +385,11 @@
 <nav class="nav" aria-label="Primary">
   <div class="wrap nav__inner">
     <a class="lockup" href="#top" aria-label="Milgray Legal, estate planning lawyers">
-      <span class="lockup__name">MILGRAY&nbsp;LEGAL</span>
-      <span class="lockup__sub">ESTATE&nbsp;PLANNING&nbsp;LAWYERS</span>
+      <img class="lockup__mark" src="assets/mg-mark-navy.png" alt="" width="360" height="184">
+      <span class="lockup__type">
+        <span class="lockup__name">MILGRAY&nbsp;LEGAL</span>
+        <span class="lockup__sub">ESTATE&nbsp;PLANNING&nbsp;LAWYERS</span>
+      </span>
     </a>
     <ul class="nav__links">
       <li><a href="#wills">Wills</a></li>
@@ -359,23 +408,23 @@
 
   <header class="hero" id="top">
     <div class="hero__media" aria-hidden="true">
-      <img src="https://images.pexels.com/photos/4597300/pexels-photo-4597300.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="" fetchpriority="high">
+      <img src="https://images.pexels.com/photos/4597300/pexels-photo-4597300.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="" fetchpriority="high" data-parallax="60">
     </div>
     <div class="hero__scrim" aria-hidden="true"></div>
     <div class="wrap">
       <div class="hero__inner">
         <div class="hero__head">
-          <span class="label">Wills, in plain English</span>
-          <h1>Look after the people you love.</h1>
+          <span class="label anim" style="--d:.05s">Wills, in plain English</span>
+          <h1 class="anim" style="--d:.16s">Look after the people you love.</h1>
         </div>
         <div class="hero__aside">
-          <p class="hero__lede">A will is an act of care as much as a legal document &mdash; a way to keep the important decisions yours and spare your family the guesswork. We make that straightforward, without the jargon.</p>
-          <div class="hero__ctas">
+          <p class="hero__lede anim" style="--d:.30s">A will is an act of care as much as a legal document &mdash; a way to keep the important decisions yours and spare your family the guesswork. We make that straightforward, without the jargon.</p>
+          <div class="hero__ctas anim" style="--d:.42s">
             <a class="btn btn--light" href="#enquire">Enquire today <span class="arrow" aria-hidden="true">&rarr;</span></a>
-            <a class="btn btn--ghost-light" href="#process">See how it works</a>
+            <a class="btn btn--glass" href="#process">See how it works</a>
           </div>
         </div>
-        <ul class="hero__facts">
+        <ul class="hero__facts anim" style="--d:.55s">
           <li>Plain-English advice, no jargon</li>
           <li>After-hours appointments</li>
           <li>The first call costs nothing</li>
@@ -384,20 +433,19 @@
     </div>
   </header>
 
-  <section class="story">
-    <div class="wrap story__grid reveal">
-      <div>
+  <section class="feature story">
+    <div class="feature__media">
+      <img src="https://images.pexels.com/photos/5442688/pexels-photo-5442688.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="A father and two children sharing breakfast at the kitchen table in a warmly lit home." loading="lazy" data-parallax="46">
+    </div>
+    <div class="wrap feature__inner">
+      <div class="feature__text reveal">
         <span class="label">Why plan ahead</span>
         <h2>A will is more than a document. It&rsquo;s a plan you make for the people you love.</h2>
-        <div class="story__body">
+        <div class="feature__body">
           <p>Writing down what you want gives your family clarity at a hard time and keeps the important decisions in your hands. It also saves them the legal tangles that come up when nothing has been put in writing.</p>
           <p>Whether it&rsquo;s sorting who gets what, providing for your family, or naming the people you trust to step in, our job is to make it simple. Most people sort it out well before they ever need it, then get on with life.</p>
         </div>
       </div>
-      <figure class="figure story__media">
-        <img src="https://images.pexels.com/photos/5442688/pexels-photo-5442688.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="A father and two children sharing breakfast at the kitchen table in a warmly lit home." loading="lazy">
-        <figcaption>Where these conversations belong: the kitchen table, not an office.</figcaption>
-      </figure>
     </div>
   </section>
 
@@ -437,7 +485,7 @@
           <p class="lede">If you die without a will, the law decides who gets what. It follows a fixed formula, and the formula doesn&rsquo;t know your family. A will replaces the formula with your own words.</p>
         </div>
         <figure class="service__figure">
-          <img src="https://images.pexels.com/photos/4609039/pexels-photo-4609039.jpeg?auto=compress&cs=tinysrgb&w=900" alt="A father and his young daughter resting their foreheads together in a bright, plant-filled living room." loading="lazy">
+          <img src="https://images.pexels.com/photos/4609039/pexels-photo-4609039.jpeg?auto=compress&cs=tinysrgb&w=900" alt="A father and his young daughter resting their foreheads together in a bright, plant-filled living room." loading="lazy" data-parallax="34">
         </figure>
       </div>
       <div class="service__cols">
@@ -473,7 +521,7 @@
           <p class="lede">An enduring power of attorney lets you pick the person who looks after your money and paperwork if illness or injury means you can&rsquo;t. You choose them yourself, while you still can.</p>
         </div>
         <figure class="service__figure">
-          <img src="https://images.pexels.com/photos/9869635/pexels-photo-9869635.jpeg?auto=compress&cs=tinysrgb&w=900" alt="A couple sitting at their kitchen table, going through paperwork together over coffee." loading="lazy">
+          <img src="https://images.pexels.com/photos/9869635/pexels-photo-9869635.jpeg?auto=compress&cs=tinysrgb&w=900" alt="A couple sitting at their kitchen table, going through paperwork together over coffee." loading="lazy" data-parallax="34">
         </figure>
       </div>
       <div class="service__cols">
@@ -508,7 +556,7 @@
           <p class="lede">A power of attorney covers your money. An enduring guardian covers you &mdash; where you live, the treatment you get, the support you receive &mdash; if you&rsquo;re ever unable to say so yourself.</p>
         </div>
         <figure class="service__figure">
-          <img src="https://images.pexels.com/photos/6595043/pexels-photo-6595043.jpeg?auto=compress&cs=tinysrgb&w=900" alt="A father and daughter talking quietly together at home." loading="lazy">
+          <img src="https://images.pexels.com/photos/6595043/pexels-photo-6595043.jpeg?auto=compress&cs=tinysrgb&w=900" alt="A father and daughter talking quietly together at home." loading="lazy" data-parallax="34">
         </figure>
       </div>
       <div class="service__cols">
@@ -556,8 +604,9 @@
 
   <section class="section--navy" id="process">
     <div class="process__media" aria-hidden="true">
-      <img src="https://images.pexels.com/photos/955394/pexels-photo-955394.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" loading="lazy">
+      <img src="https://images.pexels.com/photos/955394/pexels-photo-955394.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" loading="lazy" data-parallax="54">
     </div>
+    <img class="watermark" src="assets/mg-mark-white.png" alt="" aria-hidden="true" loading="lazy" width="360" height="184">
     <div class="wrap reveal">
       <span class="label">How it works</span>
       <h2>From first call to signed will, here&rsquo;s how it goes.</h2>
@@ -634,8 +683,11 @@
     <div class="footer__top">
       <div>
         <a class="lockup" href="#top" aria-label="Milgray Legal, estate planning lawyers">
-          <span class="lockup__name">MILGRAY&nbsp;LEGAL</span>
-          <span class="lockup__sub">ESTATE&nbsp;PLANNING&nbsp;LAWYERS</span>
+          <img class="lockup__mark" src="assets/mg-mark-white.png" alt="" width="360" height="184">
+          <span class="lockup__type">
+            <span class="lockup__name">MILGRAY&nbsp;LEGAL</span>
+            <span class="lockup__sub">ESTATE&nbsp;PLANNING&nbsp;LAWYERS</span>
+          </span>
         </a>
         <p class="footer__tag">Wills, in plain English.</p>
       </div>
@@ -661,6 +713,28 @@
 
 <script>
   document.documentElement.classList.add('js');
+
+  // Parallax — subtle depth on media. Transform-only, rAF-throttled, off for reduced motion.
+  var pxEls = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
+  if (pxEls.length && window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    var pxTicking = false;
+    function placeParallax(){
+      var vh = window.innerHeight;
+      for (var i = 0; i < pxEls.length; i++){
+        var el = pxEls[i], box = el.parentElement.getBoundingClientRect();
+        if (box.bottom < -140 || box.top > vh + 140) continue;
+        var range = parseFloat(el.getAttribute('data-parallax')) || 40;
+        var p = (box.top + box.height / 2 - vh / 2) / (vh / 2 + box.height / 2);
+        p = p < -1 ? -1 : p > 1 ? 1 : p;
+        el.style.transform = 'translate3d(0,' + (p * range).toFixed(2) + 'px,0)';
+      }
+      pxTicking = false;
+    }
+    function onPxScroll(){ if (!pxTicking){ pxTicking = true; requestAnimationFrame(placeParallax); } }
+    window.addEventListener('scroll', onPxScroll, {passive:true});
+    window.addEventListener('resize', onPxScroll);
+    placeParallax();
+  }
 
   // Enquiry form → opens a pre-filled email (no backend needed)
   function setError(input, errId, invalid){
